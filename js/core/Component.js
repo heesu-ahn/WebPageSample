@@ -42,7 +42,7 @@ export class ComponentView {
     }
     this.loadHtml = async function (pageName) {
       console.log('loadHtml');
-      const response = await fetch(`/template/template.html`);
+      const response = await fetch(`./template/template.html`);
       const text = await response.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(text, 'text/html');
