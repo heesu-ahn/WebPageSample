@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer type="module" src="./js/pageControl.js"></script>
+        <script>
+            const pageName = globalVariable.pageName;
+            
+            var variableObject = {
+            value: undefined,
+            set: function (value) {
+                    this.value = value;
+                    this.getOnChange();
+                }
+            }
+            variableObject.getOnChange = function() {
+                if(this.value) {
+                    console.log(this.value);
+                }
+            }
+        </script>
+        <title>Document</title>
+    </head>
+</head>
+
+<body>
+    <div class="test1">test1</div>
+    <div class="test2">test2</div>
+    <div class="login">
+        <input type="text" id="currentUserName" hidden="" value="">
+        <input type="text" id="getAuthCode" hidden="" value="">
+        <div class="login-form">
+            <form>
+                <input type="text" id="loginUserName" class="text-field" value="" placeholder="아이디">
+                <input type="password" id="loginPassword" class="text-field" value="" placeholder="비밀번호" autocomplete="off">
+                <input type="button" value="로그인" class="submit-btn" onclick="SaveUserInfo()">
+            </form>
+            <div class="links">
+                <div class="links"><a href="#" onclick="ResetPasswordFunction(this)">비밀번호를 잊어버리셨나요?</a></div>
+            </div>
+            <div id="modalContainer" class="">
+                <div id="modalContent">
+                    <p><strong>기본 사용자로 등록되어 있습니다.</strong></p>
+                    <p><strong>사용자정보를 등록해 주세요.</strong></p>
+                    <form>
+                        <input type="text" id="modalUserName" class="name-field" value="" placeholder="아이디">
+                        <input type="email" id="modalEmail" class="email-field" value="" placeholder="이메일">
+                        <input type="number" id="modalAuthCode" class="authNumber-field" value="" hidden="" placeholder="인증번호">
+                        <input type="button" id="sendAutnNumber" name="sendEmail" class="submit-btn2" value="인증번호 발송" onclick="SendEmailFunction(this)">
+                    </form>
+                </div>
+                <div class="modal-content" id="alertModal">
+                    <div class="modal-body">
+                        <p id="alertMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="request">
+        <div id="alertContainer" name="alertContainer" class="hidden">
+            <div class="alert-content" id="alertModal">
+                <div class="modal-body">
+                    <p id="alertMessage"></p>
+                </div>
+            </div>
+        </div>
+        <div id="modalContent" name="modalContent" class="hidden">
+            <div class="modalContainer" id="modalContainer">
+                <div class="modalBtn">
+                    <div>
+                        <span name="MethodName">PRE_LOAD 방식 작성.</span>
+                        <button id="closeModal">닫기</button>
+                        <table class="RequestTable">
+                        </table>
+                    </div>
+                </div>
+
+                <form action="">
+
+                </form>
+            </div>
+        </div>
+        <fieldset id="ControlPannel">
+            <legend>HSA WEB MODULE</legend>
+            <div style="height: 20px;"></div>
+            <span></span>
+            <div class="alignLeft">
+                <label for="reUsePassword">
+                    <input type="checkbox" id="reUsePassword" name="reUsePassword" />비밀번호 저장
+                </label>
+                &nbsp;
+                <a id="resetBtn">비밀번호 초기화</a>
+                <br>
+                <input id="loginPassword" type="password" value="" style="display: none;" hidden>
+            </div>
+            <div class="selectServerType">
+                &nbsp;
+                <div class="btnRight">
+                    <a id="requestBtn">요청</a>
+                </div>
+                &nbsp;
+                $$TableComponent;
+            </div>
+            <div id="getResult">
+                <legend>[로그 내역]</legend>
+                <textarea class="getResult" name="" id="" cols="30" rows="10" disabled></textarea>
+                <div>
+                    <a onclick="clearResult()">초기화</a>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</body>
+
+</html>

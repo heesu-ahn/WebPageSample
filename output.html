@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>로그인</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/login.css">
+    <script defer src="./js/loginControl.js">
+    </script>
+    <script defer src="./js/commonFunctuion.js"></script>
+</head>
+
+<body>
+    <input type="text" id="currentUserName" hidden value="hsaWebModule"><input type="text" id="getAuthCode" hidden value="">
+    <div class="login-form">
+        <form><input type="text" id="loginUserName" class="text-field" value="" placeholder="아이디"><input type="password"
+                id="loginPassword" class="text-field" value="1234" placeholder="비밀번호"><input type="button" value="로그인"
+                class="submit-btn" onclick="SaveUserInfo()"></form>
+        <div class="links">
+            <div class="links"><a href="#" onclick="ResetPasswordFunction(this)">비밀번호를 잊어버리셨나요?</a></div>
+        </div>
+        <div id="modalContainer" class="hidden">
+            <div id="modalContent">
+                <p><strong>기본 사용자로 등록되어 있습니다.</strong></p>
+                <p><strong>사용자정보를 등록해 주세요.</strong></p>
+                <form><input type="text" id="modalUserName" class="name-field" value="" placeholder="아이디"><input
+                        type="email" id="modalEmail" class="email-field" value="" placeholder="이메일"><input type="number"
+                        id="modalAuthCode" class="authNumber-field" value="" hidden placeholder="인증번호"><input
+                        type="button" id="sendAutnNumber" name="sendEmail" class="submit-btn2" value="인증번호 발송"
+                        onclick="SendEmailFunction(this)"></form>
+            </div>
+            <div class="modal-content" id="alertModal">
+                <div class="modal-body">
+                    <p id="alertMessage"></p>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>

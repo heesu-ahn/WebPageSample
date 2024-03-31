@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer type="module" src="./js/pageControl.js"></script>
+    <script>
+        const globalVariable = {
+            pageName : 'login',
+            initAuthCode : '12345',
+            moduleName : 'HsaWebModule',
+        }
+    
+        var variableObject = {
+        value: undefined,
+        set: function (value) {
+                this.value = value;
+                this.getOnChange();
+            }
+        }
+        variableObject.getOnChange = function() {
+            if(this.value) {
+                console.log(this.value);
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body class="hidden">
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+
+body.hidden{
+    display: none;
+}
+
+legend {
+    margin: 0 auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #009879;
+}
+
+div.btnRight {
+    float: right;
+}
+div.alignLeft {
+    float: left;
+}
+div.selectServerType{
+    margin-top: 20px;
+}
+div.selectServerType.btnRight{
+    float: right;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 350px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+select{
+    width: auto;
+    border: none;
+}
+
+#ControlPannel {
+    width:100%;
+    margin:0 auto; 
+    max-width:300px;
+}
+
+
+a{
+    text-decoration: none !important;
+    font-weight: bold;
+}
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+img.addBtn {
+    width: 20px;
+    height: 20px;
+    object-fit: fill;
+}
+button.btm_image{
+    border: none;
+    background-color: transparent;
+    float: right;
+}
+
+
+#modalOpenButton,
+#modalCloseButton {
+  cursor: pointer;
+}
+
+#modalContent {
+    position: absolute;
+    width: calc(100% - 50px);
+    height: 350px;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    margin-top: 10px;
+}
+#getResult {
+    width: 100%;
+    margin-top: 10px;
+}
+#getResult textarea{
+    width: 99%;
+    padding: 5px;
+    height: 100%;
+    line-height: 18px;
+    border: none;
+    resize: none;
+    overflow: auto;
+    font-weight: bold;
+    color: #009879;
+}
+#getResult textarea:disabled {
+    background-color: white;
+    font-weight: bold;
+    color: #009879;
+}
+#getResult div{
+    width: 50px;
+    padding: 0 10px;
+    margin: auto;
+    background-color: #009879;
+    color: #ffffff;
+}
+
+#modalContent.hidden {
+  display: none;
+}
+
+#modalContainer {
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    margin: auto;
+}
+
+#alertModal {
+  display: none;
+}
+/* test */
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #EEEFF1;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  width: 50%;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #EEEFF1;
+  margin-top: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modalContainer {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    /* width: 80%; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  /* width: 80%; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modalBtn {
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.modalBtn div{
+    width: 100%;
+    height: 50px;
+    background-color: #009879;
+    justify-content: center;
+    align-items: center;
+}
+.modalBtn span{
+    text-justify: auto;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    width: 200px;
+    height: 80%;
+    margin-top: 10px;
+    margin-left: calc((100% / 3) - 25px);
+    text-align: -webkit-center;
+}
+.modalBtn button{
+    background-color: rgba(0, 152, 121, 0.5);
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-right: 15px;
+    float: right;
+    border: 2px solid #009879;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.modalBtn button:hover{
+    background-color: white;
+    color: #009879;
+}
+
+
+/* alertContainer */
+#alertContainer.hidden {
+    display: none;
+}
+  
+#alertContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.5);
+}
+.alert-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+#alertModal {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    padding: 10px;
+    margin: auto;
+}
+#alertMessage{
+    width: 100%;
+}
+
+.container{
+    position: absolute;
+	width: 200px;
+	margin: 0 auto;
+}
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+ul.tabs li.current{
+	background: #ededed;
+	color: #222;
+}
+
+.tab-content{
+	display: none;
+	background: #ededed;
+	padding: 15px;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+
+.RequestTable{
+    width: 100%;
+}
+.RequestTable thead{
+    width: 100%;
+}
+.RequestTable thead tr th{
+    width: audio;
+    background-color : black;
+    color: white;
+    height: 25px;
+}
+.RequestTable tbody tr td select{
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    border: solid 1px black;
+}
+.RequestTable tbody tr td .twoColumn{
+    width: 50%;
+    margin-right: 10px;
+    height: 25px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    border: solid 1px black;
+}
+
+#selecttype.hidden {
+    display: none;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -100px;
+    opacity: 0
+  }
+
+  to {
+    top: -50px;
+    opacity: 1
+  }
+}
