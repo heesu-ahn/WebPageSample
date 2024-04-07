@@ -1,32 +1,55 @@
 "use strict"
 
+
+
+let excluedeElemnets = [];
 let rowCount = 0;
-let resetBtn = document.getElementById('resetBtn');
-resetBtn.addEventListener("click",()=>{
-    InitForm(globalVariable.moduleName);
-});
 
-let requestBtn = document.getElementById('requestBtn');
-requestBtn.addEventListener("click",()=>{
-    WebSocketConnectionTest();
-});
+let resetBtnFn = function(){
+    let resetBtn = document.getElementById('resetBtn');
+    if(resetBtn) resetBtn.addEventListener("click",()=>{InitForm(globalVariable.moduleName);});
+    return resetBtn ? true  : this;
+}; 
+if(!resetBtnFn()) excluedeElemnets.push(resetBtnFn);
 
-let checkAll = document.getElementById('checkAll');
-checkAll.addEventListener("click",()=>{
-    checkAllItems(checkAll);
-});
-let img_btn = document.getElementById('img_btn');
-let btnImg = img_btn.querySelector('img[class=addBtn]');
-btnImg.src = './addbtn.png';
-img_btn.addEventListener("click",(elem)=>{
-    insertRow();
-});
+let requestBtnFn = function(){
+    let requestBtn = document.getElementById('requestBtn');
+    if(requestBtn) requestBtn.addEventListener("click",()=>{WebSocketConnectionTest();});
+    return requestBtn ? true  : this;
+} 
+if(!requestBtnFn()) excluedeElemnets.push(requestBtnFn);
 
-let closeModal = document.getElementById('closeModal');
-closeModal.addEventListener("click",(elem)=>{
-    let modalContent = document.getElementById('modalContent');
-    modalContent.setAttribute("class","hidden");    
-});
+let checkAllFn = function(){
+    let checkAll = document.getElementById('checkAll');
+    if(checkAll) checkAll.addEventListener("click",()=>{checkAllItems(checkAll);});
+    return checkAll ? true  : this;
+}
+if(!checkAllFn()) excluedeElemnets.push(checkAllFn);
+
+let imgBtnFn = function(){
+    let img_btn = document.getElementById('img_btn');
+    if(img_btn) {
+        img_btn.addEventListener("click",(elem)=>{insertRow();});
+        let btnImg = img_btn ? img_btn.querySelector('img[class=addBtn]') : undefined;
+        if(btnImg){
+            btnImg.src = './addbtn.png';
+        }
+    }
+    return img_btn ? true  : this;
+}
+if(!imgBtnFn())excluedeElemnets.push(imgBtnFn);
+
+
+let closeModalFn = function(){
+    let closeModal = document.getElementById('closeModal');
+    if(closeModal)closeModal.addEventListener("click",(elem)=>{
+        let modalContent = document.getElementById('modalContent');
+        modalContent.setAttribute("class","hidden");    
+    });
+    return closeModal ? true  : this;
+}
+if(!closeModalFn()) excluedeElemnets.push(closeModalFn);
+
 if(window.localStorage.getItem('currentUserName')) {
   let loginUserInfo = JSON.parse(window.localStorage.getItem('currentUserName'));
   if(loginUserInfo && (typeof loginUserInfo === 'object') && loginUserInfo.hasOwnProperty('loginUserName')){
@@ -37,6 +60,8 @@ if(window.localStorage.getItem('currentUserName')) {
 let testServerList = [];
 
 const alertModal = document.getElementById("alertModal");
+
+__valueObject['request'].excluedeElemnets = excluedeElemnets;
         
 function WebSocketConnectionTest() {
 
@@ -71,8 +96,8 @@ function WebSocketConnectionTest() {
     }
     else {
         const savePassword = document.getElementById("reUsePassword").checked;
-        if(WebSocketServiceModule){
-            let WS = WebSocketServiceModule.WebSocketMessageModule;
+        if(__valueObject.WebSocketServiceModule){
+            let WS = __valueObject.WebSocketServiceModule.WebSocketMessageModule;
             WS.WebSocketConnection(params, password, savePassword, callbackSuccess, callbackFail);
 
         }
@@ -230,3 +255,17 @@ const checkAllItems = function(bx) {
     }
 }
 
+
+var targetElement = __valueObject.commonFunction.setTargetElement('reqeust');
+if(targetElement){
+    let elementIds = [
+        {elementId : 'checkAll',tagName : 'input',type: 'checkbox', name:'all'},
+        {elementId : 'img_btn', colspan : '2',label:'통신 요청 구분'}
+    ];
+    const createTable = __valueObject.tableComponent.TableLoad('requestTable','SelectServer',elementIds); // 테이블 ID,tbody ID 기준 테이블 동적 생성
+    document.getElementById('tableComponent').innerHTML = createTable; 
+    __valueObject.request.excluedeElemnets.forEach((excludeElement)=>{
+        return excludeElement();
+    })
+    __valueObject.request.excluedeElemnets = [];
+}
